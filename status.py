@@ -3,7 +3,7 @@ import json, math, telepot
 from uptime       import uptime
 from subprocess   import call, check_output
 
-//enter your password json path below
+#enter your json path below with constant and bot information
 autht_path = '/home/auth.json'
 
 def temp():
@@ -65,8 +65,8 @@ with open(autht_path) as file:
     secrets = json.load(file)
 
     bot = telepot.Bot(secrets['tg_tk_bot'])
-    numero = secrets['tg_id_to']
+    tg_destiny = secrets['tg_id_to']
 
-bot.sendMessage(numero, '*CPU Temp:*' + temp() + '*Uptime:* ' \
+bot.sendMessage(tg_destiny, '*CPU Temp:*' + temp() + '*Uptime:* ' \
 				 + uptm() + "\n*IP:* " + ip + '\n*CPU Load:* ' + cpu() + '\n*Mem:* '\
                  + mem() + '\n*Disk:* ' + disk() + estado, parse_mode='Markdown')
